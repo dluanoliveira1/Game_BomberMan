@@ -241,7 +241,7 @@ public class Main extends SimpleApplication {
          initKeys();
     }
     private void initKeys() {
-        
+             
         inputManager.addMapping("Up", new KeyTrigger(KeyInput.KEY_W));
         inputManager.addMapping("Down", new KeyTrigger(KeyInput.KEY_S));
         inputManager.addMapping("Left", new KeyTrigger(KeyInput.KEY_A));
@@ -366,7 +366,7 @@ public class Main extends SimpleApplication {
                     }
                 }
                 
-                if(dropBomb && bomb_on_field == 0){
+                if(dropBomb && bomb_on_field == 0 && effects_on_field == 0){
                     createBomb();
                     bomb_i = otto_pos_i;
                     bomb_j = otto_pos_j;
@@ -524,7 +524,7 @@ public class Main extends SimpleApplication {
                     }
                 }
                 
-                if(dropBomb1 && bomb_on_field1 == 0){
+                if(dropBomb1 && bomb_on_field1 == 0 && effects_on_field1 == 0){
                     createBomb1();
                     bomb_i1 = otto_pos_i1;
                     bomb_j1 = otto_pos_j1;
@@ -1025,10 +1025,14 @@ public class Main extends SimpleApplication {
         winner = 0;
         winner1 = 0;
         
+        special = false;
+        special1 = false;
+        
         playerOne();
         playerTwo();
         guiNode.detachAllChildren();
-        count_box -= counta;
+        count_box -= counta*8;
+        counta = 0;
      
     }
     public void playerOne(){
