@@ -57,6 +57,7 @@ public class Main extends SimpleApplication {
     int count_eff = 0;
     boolean special = false;
     boolean special_on = false;
+    int counta=0;
     
     
     Node aux_rootNode = new Node("auxiliar");
@@ -112,6 +113,8 @@ public class Main extends SimpleApplication {
         //AppSettings a = new AppSettings(true);
         //a.setFullscreen(true);
         //app.setSettings(a);
+        app.setDisplayFps(false);
+        app.setDisplayStatView(false);
         app.start();
     }
 
@@ -743,12 +746,14 @@ public class Main extends SimpleApplication {
                 if(m[bomb_i + i][bomb_j] == 2){
                     rootNode.detachChildNamed("box" + (bomb_i + i) + bomb_j);
                     m[bomb_i + i][bomb_j] = 0;
+                    counta++;
                 }
             
             if((bomb_i - i) >= 0 && (bomb_i - i) <= 12)
                 if(m[bomb_i - i][bomb_j] == 2){
                     rootNode.detachChildNamed("box" + (bomb_i - i) + bomb_j);
                     m[bomb_i - i][bomb_j] = 0;
+                    counta++;
                 }
             
             
@@ -756,12 +761,14 @@ public class Main extends SimpleApplication {
                 if(m[bomb_i][bomb_j + i] == 2){
                     rootNode.detachChildNamed("box" + bomb_i + (bomb_j + i));
                     m[bomb_i][bomb_j + i] = 0;
+                    counta++;
                 }
             
             if((bomb_j - i) >= 0 && (bomb_j - i) <= 12)
                 if(m[bomb_i][bomb_j - i ] == 2){
                     rootNode.detachChildNamed("box" + bomb_i + (bomb_j - i));
                     m[bomb_i][bomb_j - i] = 0;
+                    counta++;
                 } 
             }
         }
@@ -772,12 +779,14 @@ public class Main extends SimpleApplication {
                 if(m[bomb_i + 1][bomb_j] == 2){
                     rootNode.detachChildNamed("box" + (bomb_i + 1) + bomb_j);
                     m[bomb_i + 1][bomb_j] = 0;
+                    counta++;
                 }
             
             if((bomb_i - 1) >= 0 && (bomb_i - 1) <= 12)
                 if(m[bomb_i - 1][bomb_j] == 2){
                     rootNode.detachChildNamed("box" + (bomb_i - 1) + bomb_j);
                     m[bomb_i - 1][bomb_j] = 0;
+                    counta++;
                 }
             
             
@@ -785,12 +794,14 @@ public class Main extends SimpleApplication {
                 if(m[bomb_i][bomb_j + 1] == 2){
                     rootNode.detachChildNamed("box" + bomb_i + (bomb_j + 1));
                     m[bomb_i][bomb_j + 1] = 0;
+                    counta++;
                 }
             
             if((bomb_j - 1) >= 0 && (bomb_j - 1) <= 12)
                 if(m[bomb_i][bomb_j - 1 ] == 2){
                     rootNode.detachChildNamed("box" + bomb_i + (bomb_j - 1));
                     m[bomb_i][bomb_j - 1] = 0;
+                    counta++;
                 } 
             }
         
@@ -1017,6 +1028,7 @@ public class Main extends SimpleApplication {
         playerOne();
         playerTwo();
         guiNode.detachAllChildren();
+        count_box -= counta;
      
     }
     public void playerOne(){
