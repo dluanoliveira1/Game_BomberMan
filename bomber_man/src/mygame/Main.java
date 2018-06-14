@@ -1031,8 +1031,14 @@ public class Main extends SimpleApplication {
         playerOne();
         playerTwo();
         guiNode.detachAllChildren();
+        
+        if(counta < 5)
+            counta = 10;
+        
+        
         count_box -= counta*8;
         counta = 0;
+        
      
     }
     public void playerOne(){
